@@ -2,7 +2,7 @@
 	{% for elemento in elementos %}
 		<tr>
 			{% for columna in columnas %}
-				 <td class={{columna.size}}>{{elemento[columna.id]}}</td>
+				 <td class={{columna.size}}>{{elemento[columna.id]|raw}}</td>
 			{% endfor %}
 		</tr>
 	{% endfor %}
