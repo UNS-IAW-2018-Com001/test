@@ -1,0 +1,190 @@
+	.table-wrapper {
+		color:black;
+		margin-top: 30px;
+		background-color: #FFF;
+    }
+	.table-title {    
+		background-color: #A94442;
+    	color: #FFF;
+    	padding: 10px;
+    }
+    #opcionesTable{
+    	float:rigth;
+    	margin-top: 10px;
+    }
+	#add{
+		padding-top: 2px;
+	}
+	.table .table-hover{
+		background-color: #FFF;
+	}
+	/* Custom checkbox */
+	.custom-checkbox {
+		position: relative;
+	}
+	.custom-checkbox input[type="checkbox"] {    
+		opacity: 0;
+		position: absolute;
+		margin: 5px 0 0 3px;
+		z-index: 9;
+	}
+	.custom-checkbox label:before{
+		width: 18px;
+		height: 18px;
+	}
+	.custom-checkbox label:before {
+		content: '';
+		margin-right: 10px;
+		display: inline-block;
+		vertical-align: text-top;
+		background: white;
+		border: 1px solid #bbb;
+		border-radius: 2px;
+		box-sizing: border-box;
+		z-index: 2;
+	}
+	.custom-checkbox input[type="checkbox"]:checked + label:after {
+		content: '';
+		position: absolute;
+		left: 6px;
+		top: 3px;
+		width: 6px;
+		height: 11px;
+		border: solid #000;
+		border-width: 0 3px 3px 0;
+		transform: inherit;
+		z-index: 3;
+		transform: rotateZ(45deg);
+	}
+	.custom-checkbox input[type="checkbox"]:checked + label:before {
+		border-color: #03A9F4;
+		background: #03A9F4;
+	}
+	.custom-checkbox input[type="checkbox"]:checked + label:after {
+		border-color: #fff;
+	}
+	.custom-checkbox input[type="checkbox"]:disabled + label:before {
+		color: #b8b8b8;
+		cursor: auto;
+		box-shadow: none;
+		background: #ddd;
+	}
+	/* Modal styles */
+	.modal .modal-dialog {
+		max-width: 400px;
+	}
+	.modal .modal-header, .modal .modal-body, .modal .modal-footer {
+		padding: 20px 30px;
+	}
+	.modal .modal-content {
+		border-radius: 3px;
+	}
+	.modal .modal-footer {
+		background: #ecf0f1;
+		border-radius: 0 0 3px 3px;
+	}
+    .modal .modal-title {
+        display: inline-block;
+    }
+	.modal .form-control {
+		padding: 0px;
+		border-radius: 2px;
+		box-shadow: none;
+		border-color: #dddddd;
+	}
+	.bootstrap-select form-control {
+		width: 89%;
+	}
+	.modal .btn {
+		border-radius: 2px;
+		min-width: 100px;
+	}	
+	.modal form label {
+		font-weight: normal;
+	}	
+	.modal-content {
+    	box-shadow: unset;
+    	border: 0px;
+	}
+	#contentadd{
+		padding-bottom: 20px;
+	}
+	.modal-open {
+    overflow: hidden;
+    color: #000;
+}
+* {
+    box-sizing: content-box;
+}
+
+	.search-box {
+        position: relative;
+        float: right;
+    }
+	.search-box .input-group {
+		min-width: 300px;
+		position: absolute;
+		right: 0;
+	}
+	.search-box .input-group-addon, .search-box input {
+		border-color: #ddd;
+		border-radius: 0;
+	}	
+    .search-box input {
+        height: 34px;
+        padding-right: 12px;
+        background: #f4fcfd;
+        border: none;
+        border-radius: 2px !important;
+    }
+	.search-box input:focus {
+        background: #fff;
+	}
+	.search-box input::placeholder {
+        font-style: italic;
+    }
+	.search-box .input-group-addon {
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 0;
+        z-index: 9;
+        padding: 7px 0;
+    }
+    .search-box i {
+        color: #a0a5b1;
+        font-size: 19px;
+        position: relative;
+        top: 2px;
+    }
+    #search{
+    	    padding-top: 0px;
+    padding-bottom: 0px;
+    border-top-style: solid;
+    border-top-width: 0px;
+    margin-top: 0px;
+    }
+    #titleTable{
+    	margin:10px;
+    }
+    #add{
+    	float: right;
+    }
+    #Searchdiv{
+    	float: right;
+    }
+#panelTOTAL{
+	color:black;
+}
+#containers{
+	margin-top: 70px;	
+}
+.bootstrap-select.btn-group[class*="col-"] .dropdown-toggle {
+    width: 89%;
+}
+.obligatorio{
+	color:red;
+}
+#brand{
+    box-sizing: border-box;
+}

@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return View::make('index');
 });
+Route::get('/grupos', 'gruposController@index');
+Route::get('/ramas/{idgrupo}', 'ramasController@index');

@@ -11,7 +11,7 @@ body {
    background-color: #f5e79e;
    padding-right:1em;
     margin-top: 58px;
-    padding-top: 0px;
+    padding: 14px;
     border-width: 0px;
     box-shadow: none;
 }
@@ -55,6 +55,11 @@ body {
 #botonFiltro{
     margin-top: 5px;
 }
+#botonBorrarFiltro{
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
 #id_rama{
 	border-width:1px;
 }

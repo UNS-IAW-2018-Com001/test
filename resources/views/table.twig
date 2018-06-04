@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+       {% include "components/navegationBar.twig" %}
+       <div class="panel panel-info" id="panelTOTAL">
+         	<div class="table-wrapper">
+         		 {% include "components/titleTable.twig" %}
+         		 <table class="table table-hover">
+         		 	{% include "components/headTable.twig" %}
+         		 	{% include "components/bodyTable.twig" %}
+         		 </table>
+         	</div>
+       </div>
+       {% include "components/navegationBar.twig" %}
+       {% include "modals/deleteModal.twig" %}
+       {% block modals %}{% endblock %}
+{% endblock %}
