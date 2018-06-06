@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+     'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,8 +77,19 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
         ],
-
+        'mongodb' => array(
+            'driver'   => 'mongodb',
+            'host'     => env('MONGODB_HOST','ds113200.mlab.com'),
+            'port'     => env('MONGODB_PORT','13200'),
+            'username' => env('MONGODB_USERNAME','scouts'),
+            'password' => env('MONGODB_PASSWORD','scouts'),
+            'database' => env('MONGODB_DATABASE','scouts'),
+            'options' => [
+                'database' =>  env('MONGODB_DATABASE') // sets the authentication database required by mongo 3
+            ]
+        ),
     ],
+
 
     /*
     |--------------------------------------------------------------------------
