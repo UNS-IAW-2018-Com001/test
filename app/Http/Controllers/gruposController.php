@@ -64,13 +64,7 @@ class gruposController extends Controller
 	const edit2=')><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a><a href="#deleteGrupoModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>';
     
     public function index(){
-    	$grupos=[
-			0=>array("Coronel Rosales","234","25/10/1986","14:00","17:00","","Religión Heterogenea",
-						self::ubicacion,self::ramas,self::edit1.'1'.self::edit2),
-			1=>array("San Antonio María Zaccaría","1035","24/09/2005","14:30","19:00"
-						,"<b>Sitio web: </b> https://www.facebook.com/samz1035/<br>
-                        <b>Telefono: </b>2121221","Católica",
-						self::ubicacion,self::ramas,self::edit1.'2'.self::edit2),
+    	$grupos=[			
 		];
     	return view('grupos', [
     		'title' => "Administrar Grupo Scouts",

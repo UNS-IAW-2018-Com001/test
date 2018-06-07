@@ -1,7 +1,33 @@
-<tbody>
 	{% for grupo in grupos %}
 		<tr>
-			<td>{{elemento[columna.id]|raw}}</td>
-		</tr>
+                        <td>{{grupo.nombre}}</td>
+                        <td>{{grupo.codigo}}</td>
+                        <td>{{grupo.fecha_Creacion}}</td>
+                        <td>{{grupo.horario_Inicio}}</td>
+                        <td>{{grupo.horario_fin}}</td>
+                        <td>
+	                        {% if {{grupo.telefono}} %}
+	                            <b>Telefono: </b>{{grupo.telefono}}<br> 
+	                        {% endif %}
+	                        {% if {{grupo.email}} %}
+	                            <b>Email: </b>{{grupo.email}}<br> 
+	                        {% endif %}
+	                        {% if {{grupo.sitio_web}} %}
+	                            <b>Sitio Web: </b>{{grupo.sitio_web}}<br> 
+	                        {% endif %}
+                        </td>
+                        <td>{{grupo.religion}}</td>
+                        <td><a><span>Ver Ubicación</span></a></td>
+                        <td><a><span>Ver Ramas</span></a></td>
+                        <td>
+                            <a href="#editGrupoModal" class="edit" data-toggle="modal" onclick=editarGrupo({{loop.index0}})>
+                            	<i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;
+                            	</i>
+                            </a>
+                            <a href="#deleteGrupoModal" class="delete" data-toggle="modal">
+                            	<i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
+                            	</i>
+                            </a>
+                        </td>
+                    </tr>
 	{% endfor %}
-</tbody>

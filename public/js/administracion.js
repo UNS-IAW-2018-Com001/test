@@ -1,3 +1,4 @@
+   var grupos;
     $(document).ready(function(){
     	// Activate tooltips
     	$('[data-toggle="tooltip"]').tooltip();
@@ -32,13 +33,14 @@
             minView:0,
             maxView:1
         });
-        function editarGrupo(i){
-            console.log(i);
-            editNombre.value=document.getElementById("tabla").rows[i].cells[0].textContent;
-            editCodigo.value=document.getElementById("tabla").rows[i].cells[1].textContent;
-        }
-        
+
     });
+
+        function editarGrupo(index){
+            console.log(index);
+            var grupo=grupos[index];
+            editNombre.value=grupo.nombre;
+        }
     $(document).on("click","#botonCoord", function(){
         $("#Coordenadas").val("Pepe");
         var key='AIzaSyD6w7d-gbnFx2SZPOW_zTiUByMekCvTPuE';
@@ -54,4 +56,12 @@
 
 
         });
+    });
+    const pizzaTemplate = Twig.twig({
+        href: "shared/renderGrupoBody.twig",async:false
+    });
+    $.get("./api/grupos", function(data, status) {
+        grupos=data;
+         $("#tableBody").append($(pizzaTemplate.render({"grupos":data})));
+
     });
