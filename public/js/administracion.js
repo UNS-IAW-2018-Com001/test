@@ -32,7 +32,12 @@
             minView:0,
             maxView:1
         });
-
+        function editarGrupo(i){
+            console.log(i);
+            editNombre.value=document.getElementById("tabla").rows[i].cells[0].textContent;
+            editCodigo.value=document.getElementById("tabla").rows[i].cells[1].textContent;
+        }
+        
     });
     $(document).on("click","#botonCoord", function(){
         $("#Coordenadas").val("Pepe");

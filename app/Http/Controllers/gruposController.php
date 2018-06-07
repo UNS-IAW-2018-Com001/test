@@ -29,7 +29,7 @@ class gruposController extends Controller
 		),
 		4 =>array(
 			'size'=>"col-md-1",
-			'name'=>">Horario de Fin",
+			'name'=>"Horario de Fin",
 			'id'=>4
 		),
 		5 =>array(

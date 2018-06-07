@@ -4,11 +4,4 @@
        {% include "modals/addGrupoModal.twig" %}
        {% include "modals/editGrupoModal.twig" %}	
        {% include "modals/ubicacionModal.twig" %}
-       <script>
-	function editarGrupo(i){
-		console.log(i);
-		editNombre.value=document.getElementById("tabla").rows[i].cells[0].textContent;
-		editCodigo.value=document.getElementById("tabla").rows[i].cells[1].textContent;
-	}
-</script>
 {% endblock %}
