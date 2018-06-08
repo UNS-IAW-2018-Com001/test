@@ -9,7 +9,6 @@
             $("table tbody tr").each(function(){
                 $row = $(this);
                 var name = $row.find("td:nth-child(1)").text().toLowerCase();
-                console.log(name);
                 if(name.search(term) < 0){                
                     $row.hide();
                 } else{
@@ -55,6 +54,10 @@
         console.log(index);
         var grupo=grupos[index];
         editNombre.value=grupo.nombre;
+        editCodigo.value=grupo.codigo;
+        editFecha.value=grupo.fecha_Creacion;
+        editHsInicio.value=grupo.horario_Inicio;
+        editHsFin.value=grupo.horario_Fin;
     }
     function crearGrupo(){
 
