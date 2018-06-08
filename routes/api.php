@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/grupos', function () {
     return Grupo::all();
 });
+Route::post('/grupo/crear','gruposController@crear');

@@ -33,14 +33,32 @@
             minView:0,
             maxView:1
         });
-
+        $("#addGrupoSubmit").click(function(e) {
+            e.preventDefault();
+            
+            var mensaje={
+                'nombre':addNombreGrupo.value,
+                'codigo':addCodigoGrupo.value,
+                'fecha_Creacion':addFechaGrupo.value,
+                'horario_Inicio':addInicioGrupo.value,
+                'horario_Fin':addFinGrupo.value,
+            };
+            console.log(JSON.stringify(mensaje));
+            postTest('/api/grupo/crear',JSON.stringify(mensaje));
+            //var name = $("#name").val();
+            //var email = $("#email").val();
+            //var msg = $("#msg").val();
+        });
     });
 
-        function editarGrupo(index){
-            console.log(index);
-            var grupo=grupos[index];
-            editNombre.value=grupo.nombre;
-        }
+    function editarGrupo(index){
+        console.log(index);
+        var grupo=grupos[index];
+        editNombre.value=grupo.nombre;
+    }
+    function crearGrupo(){
+
+    }
     $(document).on("click","#botonCoord", function(){
         $("#Coordenadas").val("Pepe");
         var key='AIzaSyD6w7d-gbnFx2SZPOW_zTiUByMekCvTPuE';
@@ -65,3 +83,18 @@
          $("#tableBody").append($(pizzaTemplate.render({"grupos":data})));
 
     });
+
+    function postTest(ruta,elemento) {
+    //const jsonString = JSON.stringify(Array.from(comentario.values()));
+    $.ajax({
+      url: ruta,
+      type: 'POST',
+      data: elemento,
+      contentType: "application/json",
+      dataType: "json",
+      success: function(data){
+        console.log(data);
+    },
+      error:function(data){ }
+  });
+}

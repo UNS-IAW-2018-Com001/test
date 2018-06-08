@@ -2,10 +2,25 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 class gruposController extends Controller
 {
+	public function index(){
+        	return view('grupos', [
+    		'title' => "Administrar Grupo Scouts",
+    		'titleTable'=> "Administrar Grupos Scouts",
+    		'addLabel'=>'Grupo',
+    		'modalDeleteTitle'=>" Eliminar Grupo",
+    		'columnas'=>self::columnas,
+    		'elementos'=>[],
+		]);
+    }
+    public function crear(Request $request){
+    	$data = json_decode($request->getContent(), true);
+    	return response()->json($data, 200);
+    }
 	const columnas = array(
 		0 => array(
 			'size'=>"col-md-2",
@@ -63,17 +78,6 @@ class gruposController extends Controller
 	const edit1='<a href="#editGrupoModal" class="edit" data-toggle="modal" onclick=editarGrupo(';
 	const edit2=')><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a><a href="#deleteGrupoModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>';
     
-    public function index(){
-    	$grupos=[			
-		];
-    	return view('grupos', [
-    		'title' => "Administrar Grupo Scouts",
-    		'titleTable'=> "Administrar Grupos Scouts",
-    		'addLabel'=>'Grupo',
-    		'modalDeleteTitle'=>" Eliminar Grupo",
-    		'columnas'=>self::columnas,
-    		'elementos'=>$grupos,
-		]);
-    }
+    
     
 }
