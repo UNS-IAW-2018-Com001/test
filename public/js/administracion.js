@@ -80,6 +80,7 @@
     });
     $.get("./api/grupos", function(data, status) {
         grupos=data;
+        console.log(grupos);
          $("#tableBody").append($(pizzaTemplate.render({"grupos":data})));
 
     });
