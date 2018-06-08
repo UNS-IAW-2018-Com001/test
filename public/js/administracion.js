@@ -33,9 +33,7 @@
             minView:0,
             maxView:1
         });
-    });
-
-         $(document).on("click","#botonCoord", function(e){
+        $("#addGrupoSubmit").click(function(e) {
             e.preventDefault();
             
             var mensaje={
@@ -50,8 +48,8 @@
             //var name = $("#name").val();
             //var email = $("#email").val();
             //var msg = $("#msg").val();
-            
         });
+    });
 
     function editarGrupo(index){
         console.log(index);
