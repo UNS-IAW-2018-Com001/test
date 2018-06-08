@@ -40,7 +40,7 @@
                 'codigo':addCodigoGrupo.value,
                 'fecha_Creacion':addFechaGrupo.value,
                 'horario_Inicio':addInicioGrupo.value,
-                'horario_Fin':addFinGrupo.value,
+                'horario_fin':addFinGrupo.value,
             };
             console.log(JSON.stringify(mensaje));
             postTest('/api/grupo/crear',JSON.stringify(mensaje));
@@ -57,7 +57,7 @@
         editCodigo.value=grupo.codigo;
         editFecha.value=grupo.fecha_Creacion;
         editHsInicio.value=grupo.horario_Inicio;
-        editHsFin.value=grupo.horario_Fin;
+        editHsFin.value=grupo.horario_fin;
     }
     function crearGrupo(){
 
