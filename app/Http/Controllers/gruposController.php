@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Grupo;
 use Illuminate\Http\Request;
 
 class gruposController extends Controller
@@ -19,7 +19,10 @@ class gruposController extends Controller
     }
     public function crear(Request $request){
     	$data = json_decode($request->getContent(), true);
-    	return response()->json($data, 200);
+    	Grupo::create($data);
+    	//$data= array($data);
+    	//dd($data["nombre"]);
+    	return response()->json(($data), 200);
     }
 	const columnas = array(
 		0 => array(
