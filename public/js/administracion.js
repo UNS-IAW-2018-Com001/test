@@ -60,6 +60,11 @@
             e.preventDefault();
             eliminarGrupo(elimIndex);
         });
+        $("#addUbicacion").click(function(e) {
+            $("#addModal").modal("hide");
+            console.log("sss");
+        });
+
 
     update();
     });
@@ -69,12 +74,22 @@
     });
     function update(){
         $.get("./api/grupos", function(data, status) {
-            grupos=data;
+            grupos=ordenByName(data);
             $("#tableBody").empty();
             $("#tableBody").append($(pizzaTemplate.render({"grupos":data})));
         });
     }
-
+    update();
+    function ordenByName(data){
+        data.sort(function (a, b) {
+            if (a.nombre > b.nombre) 
+                return 1;
+            else  if (a.nombre < a.nombre) 
+                return -1;
+            return 0;
+        });
+        return data;
+    }
     function setIndexRemove(i){
         elimIndex=i;
     }
