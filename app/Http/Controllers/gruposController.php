@@ -29,6 +29,14 @@ class gruposController extends Controller
 
     	return response()->json(($grupo), 200);
     }
+    
+
+    public function actualizar(Grupo $grupo,Request $request){
+    	$data = json_decode($request->getContent(), true);
+    	$grupo->update($data);
+
+    	return response()->json(($data), 200);
+    }
 	const columnas = array(
 		0 => array(
 			'size'=>"col-md-2",

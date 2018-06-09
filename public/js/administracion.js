@@ -1,5 +1,5 @@
    var grupos;
-   var elimIndex;
+   var elimIndex,editIndex;
    var ubicacionGrupoActual;
     $(document).ready(function(){
     	// Activate tooltips
@@ -33,6 +33,31 @@
             startView:1,
             minView:0,
             maxView:1
+        });
+        
+        $("#editGrupoSubmit").click(function(e) {
+            e.preventDefault();
+            var grupo=grupos[editIndex];
+            grupo.nombre=editNombre.value;
+            grupo.codigo=editCodigo.value;
+            grupo.fecha_Creacion=editFecha.value;
+            grupo.horario_Inicio=editHsInicio.value;
+            grupo.horario_fin=editHsFin.value;
+            grupo.religion=editReligionGrupo.value;
+            grupo.ubicacion=ubicacionGrupoActual;
+
+            if(addWebGrupo.value!="")
+                grupo['sitio_web']=addWebGrupo.value;
+            if(addTelefonoGrupo.value!="")
+                grupo['telefono']=addTelefonoGrupo.value;
+            if(addEmailGrupo.value!="")
+                grupo['email']=addEmailGrupo.value;
+            
+            var id= grupo._id;
+            ruta='/api/grupos/'+id;
+            putTest(ruta,JSON.stringify(grupo));
+            $("#editGrupoModal").modal("hide");
+            $("#ubicacionModal input").each(function(){$(this).val("");});
         });
         $("#addGrupoSubmit").click(function(e) {
             e.preventDefault();
@@ -103,12 +128,14 @@
     }
     function editarGrupo(index){
         var grupo=grupos[index];
+        editIndex=index;
         editNombre.value=grupo.nombre;
         editCodigo.value=grupo.codigo;
         editFecha.value=grupo.fecha_Creacion;
         editHsInicio.value=grupo.horario_Inicio;
         editHsFin.value=grupo.horario_fin;
         editUbicacionGrupo.value=getDireccionString(grupo.ubicacion);
+        ubicacionGrupoActual=grupo.ubicacion;
     }
 
     function getDireccion(){
@@ -157,6 +184,21 @@
     $.ajax({
       url: ruta,
       type: 'DELETE',
+      success: function(data){
+        console.log(data);
+        update();
+    },
+      error:function(data){ }
+  });
+}
+function putTest(ruta,elemento) {
+    //const jsonString = JSON.stringify(Array.from(comentario.values()));
+    $.ajax({
+      url: ruta,
+      type: 'PUT',
+      data: elemento,
+      contentType: "application/json",
+      dataType: "json",
       success: function(data){
         console.log(data);
         update();
