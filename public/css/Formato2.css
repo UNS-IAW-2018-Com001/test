@@ -6,7 +6,9 @@ body {
   color: white;
   background-color: #a94442;
 }
-
+#ubicacionModal{
+	background-color: rgba(0, 0, 0, 0.86);
+}
 #panelTOTAL{
    background-color: #f5e79e;
    padding-right:1em;

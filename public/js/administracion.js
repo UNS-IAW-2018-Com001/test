@@ -1,5 +1,6 @@
    var grupos;
    var elimIndex;
+   var ubicacionGrupoActual;
     $(document).ready(function(){
     	// Activate tooltips
     	$('[data-toggle="tooltip"]').tooltip();
@@ -43,6 +44,7 @@
                 'horario_Inicio':addInicioGrupo.value,
                 'horario_fin':addFinGrupo.value,
                 'religion':addReligionGrupo.value,
+                'ubicacion':JSON.stringify(ubicacionGrupoActual)
             };
             if(addWebGrupo.value!="")
                 mensaje['sitio_web']=addWebGrupo.value;
@@ -54,15 +56,21 @@
             postTest('/api/grupo/crear',JSON.stringify(mensaje));
             $("#addModal input").each(function(){$(this).val("");});
             addReligionGrupo.value="Religión Heterogenea";
+            addUbicacionGrupo.value= "";
+            addGrupoSubmit.disabled=true;
             $("#addModal").modal("hide");
         });
          $("#eliminarSubmit").click(function(e) {
             e.preventDefault();
-            eliminarGrupo(elimIndex);
+            var id= grupos[elimIndex]._id;
+            ruta='/api/grupos/'+id;
+            removeTest(ruta);
+            $("#deleteModal").modal("hide");
         });
-        $("#addUbicacion").click(function(e) {
-            $("#addModal").modal("hide");
-            console.log("sss");
+        $("#ubicacionSubmit").click(function(e) {
+            e.preventDefault();
+            getDireccion();
+            $("#ubicacionModal").modal("hide");
         });
 
 
@@ -100,31 +108,35 @@
         editFecha.value=grupo.fecha_Creacion;
         editHsInicio.value=grupo.horario_Inicio;
         editHsFin.value=grupo.horario_fin;
+        editUbicacionGrupo.value=getDireccionString(grupo.ubicacion);
     }
 
-    function eliminarGrupo(index){
-        var id= grupos[index]._id;
-        ruta='/api/grupos/'+id;
-        removeTest(ruta);
-        $("#deleteModal").modal("hide");
-    }
-    $(document).on("click","#botonCoord", function(){
-        $("#Coordenadas").val("Pepe");
+    function getDireccion(){
         var key='AIzaSyD6w7d-gbnFx2SZPOW_zTiUByMekCvTPuE';
-        var address=calleInput+" "+numeroInput.value+", "+ciudadInput.value+", "+provinciaInput+", Argentina";
+        var address=calleInput.value+" "+numeroInput.value+", "+ciudadInput.value+", "+provinciaInput.value+", Argentina";
         console.log(address);
         $.get("https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key="+key, function (data) {
-                var location;
+                var latitud,longitud,address;
                 if(data.status=="OK"){
-                    location=data.results[0].geometry.location
-                    console.log(location);
-                    $("#Coordenadas").val(JSON.stringify(location));
-                }
-
-
+                    datos=data.results[0];
+                    ubicacionGrupoActual={
+                        "address":datos.formatted_address,
+                        "coords": [
+                            datos.geometry.location.lat,
+                            datos.geometry.location.lng,
+                        ]};
+                        editUbicacionGrupo.value=getDireccionString(ubicacionGrupoActual);
+                        addUbicacionGrupo.value= getDireccionString(ubicacionGrupoActual);               
+                        addGrupoSubmit.disabled=false;
+                }else
+                    addUbicacionGrupo.value="Error Cargando la direccion\n Intentelo Nuevamente";
+                
         });
-    });
+    }
+    function getDireccionString(ubicacion){
+        return ubicacion.address+"\nLatitud:"+ubicacion.coords[0]+"\nLongitud:"+ubicacion.coords[1];
 
+    }
     function postTest(ruta,elemento) {
     //const jsonString = JSON.stringify(Array.from(comentario.values()));
     $.ajax({

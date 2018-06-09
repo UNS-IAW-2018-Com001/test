@@ -188,3 +188,6 @@
 #brand{
     box-sizing: border-box;
 }
+.modal-body{
+	color:black;
+}
