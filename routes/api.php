@@ -22,3 +22,4 @@ Route::get('/grupos', function () {
     return Grupo::all();
 });
 Route::post('/grupo/crear','gruposController@crear');
+Route::delete('/grupos/{grupo}', 'gruposController@eliminar');

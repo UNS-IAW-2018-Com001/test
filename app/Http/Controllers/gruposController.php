@@ -24,6 +24,11 @@ class gruposController extends Controller
     	//dd($data["nombre"]);
     	return response()->json(($data), 200);
     }
+    public function eliminar(Grupo $grupo){
+    	$grupo->delete();
+
+    	return response()->json(($grupo), 200);
+    }
 	const columnas = array(
 		0 => array(
 			'size'=>"col-md-2",

@@ -56,6 +56,12 @@
             addReligionGrupo.value="Religión Heterogenea";
             $("#addModal").modal("hide");
         });
+         $("#eliminarSubmit").click(function(e) {
+            e.preventDefault();
+            eliminarGrupo(elimIndex);
+        });
+
+    update();
     });
 
     const pizzaTemplate = Twig.twig({
@@ -69,16 +75,23 @@
         });
     }
 
-    update();
-
+    function setIndexRemove(i){
+        elimIndex=i;
+    }
     function editarGrupo(index){
-        console.log(index);
         var grupo=grupos[index];
         editNombre.value=grupo.nombre;
         editCodigo.value=grupo.codigo;
         editFecha.value=grupo.fecha_Creacion;
         editHsInicio.value=grupo.horario_Inicio;
         editHsFin.value=grupo.horario_fin;
+    }
+
+    function eliminarGrupo(index){
+        var id= grupos[index]._id;
+        ruta='/api/grupos/'+id;
+        removeTest(ruta);
+        $("#deleteModal").modal("hide");
     }
     $(document).on("click","#botonCoord", function(){
         $("#Coordenadas").val("Pepe");
@@ -105,6 +118,18 @@
       data: elemento,
       contentType: "application/json",
       dataType: "json",
+      success: function(data){
+        console.log(data);
+        update();
+    },
+      error:function(data){ }
+  });
+}
+    function removeTest(ruta) {
+    //const jsonString = JSON.stringify(Array.from(comentario.values()));
+    $.ajax({
+      url: ruta,
+      type: 'DELETE',
       success: function(data){
         console.log(data);
         update();
