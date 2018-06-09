@@ -42,13 +42,34 @@
                 'fecha_Creacion':addFechaGrupo.value,
                 'horario_Inicio':addInicioGrupo.value,
                 'horario_fin':addFinGrupo.value,
+                'religion':addReligionGrupo.value,
             };
-            console.log(JSON.stringify(mensaje));
+            if(addWebGrupo.value!="")
+                mensaje['sitio_web']=addWebGrupo.value;
+            if(addTelefonoGrupo.value!="")
+                mensaje['telefono']=addTelefonoGrupo.value;
+            if(addEmailGrupo.value!="")
+                mensaje['email']=addEmailGrupo.value;
+            
             postTest('/api/grupo/crear',JSON.stringify(mensaje));
             $("#addModal input").each(function(){$(this).val("");});
+            addReligionGrupo.value="Religión Heterogenea";
             $("#addModal").modal("hide");
         });
     });
+
+    const pizzaTemplate = Twig.twig({
+        href: "shared/renderGrupoBody.twig",async:false
+    });
+    function update(){
+        $.get("./api/grupos", function(data, status) {
+            grupos=data;
+            $("#tableBody").empty();
+            $("#tableBody").append($(pizzaTemplate.render({"grupos":data})));
+        });
+    }
+
+    update();
 
     function editarGrupo(index){
         console.log(index);
@@ -75,18 +96,6 @@
 
         });
     });
-    const pizzaTemplate = Twig.twig({
-        href: "shared/renderGrupoBody.twig",async:false
-    });
-    function update(){
-        $.get("./api/grupos", function(data, status) {
-            grupos=data;
-            $("#tableBody").empty();
-            $("#tableBody").append($(pizzaTemplate.render({"grupos":data})));
-        });
-    }
-
-    update();
 
     function postTest(ruta,elemento) {
     //const jsonString = JSON.stringify(Array.from(comentario.values()));
