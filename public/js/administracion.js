@@ -1,4 +1,5 @@
    var grupos;
+   var elimIndex;
     $(document).ready(function(){
     	// Activate tooltips
     	$('[data-toggle="tooltip"]').tooltip();
@@ -44,9 +45,8 @@
             };
             console.log(JSON.stringify(mensaje));
             postTest('/api/grupo/crear',JSON.stringify(mensaje));
-            //var name = $("#name").val();
-            //var email = $("#email").val();
-            //var msg = $("#msg").val();
+            $("#addModal input").each(function(){$(this).val("");});
+            $("#addModal").modal("hide");
         });
     });
 
@@ -58,9 +58,6 @@
         editFecha.value=grupo.fecha_Creacion;
         editHsInicio.value=grupo.horario_Inicio;
         editHsFin.value=grupo.horario_fin;
-    }
-    function crearGrupo(){
-
     }
     $(document).on("click","#botonCoord", function(){
         $("#Coordenadas").val("Pepe");
@@ -81,12 +78,15 @@
     const pizzaTemplate = Twig.twig({
         href: "shared/renderGrupoBody.twig",async:false
     });
-    $.get("./api/grupos", function(data, status) {
-        grupos=data;
-        console.log(grupos);
-         $("#tableBody").append($(pizzaTemplate.render({"grupos":data})));
+    function update(){
+        $.get("./api/grupos", function(data, status) {
+            grupos=data;
+            $("#tableBody").empty();
+            $("#tableBody").append($(pizzaTemplate.render({"grupos":data})));
+        });
+    }
 
-    });
+    update();
 
     function postTest(ruta,elemento) {
     //const jsonString = JSON.stringify(Array.from(comentario.values()));
@@ -98,6 +98,7 @@
       dataType: "json",
       success: function(data){
         console.log(data);
+        update();
     },
       error:function(data){ }
   });
