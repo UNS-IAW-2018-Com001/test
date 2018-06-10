@@ -27,3 +27,4 @@ Route::put('/grupos/{grupo}', 'gruposController@actualizar');
 Route::get('/ramas/{grupo}', 'ramasController@consultar');
 Route::post('/ramas/crear','ramasController@crear');
 Route::delete('/ramas/{rama}', 'ramasController@eliminar');
+Route::put('/ramas/{rama}', 'ramasController@actualizar');
