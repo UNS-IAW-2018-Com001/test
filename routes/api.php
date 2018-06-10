@@ -10,8 +10,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  
 });
  
-Route::post('login', 'API\PassportController@login'); 
-Route::post('register', 'API\PassportController@register');
+Route::post('/login', 'API\PassportController@login'); 
+Route::post('/register', 'API\PassportController@register');
  
 Route::group(['middleware' => 'auth:api'], function(){
  
