@@ -161,6 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         TwigBridge\ServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
 
     ],
 
