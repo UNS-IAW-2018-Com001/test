@@ -17,12 +17,11 @@
     });
     function update(){
         $.get("/api/ramas/"+idGrupo, function(data, status) {
-            ramas=data;
+            ramas=Object.values(data);
             $("#tableBody").empty();
             $("#tableBody").append($(bodyTemplate.render({"ramas":data})));
         });
     }
-
     function realizarAgregado(){
         var mensaje={
             'nombre':addNombreRama.value,
@@ -44,3 +43,23 @@
         removeTest(ruta);
         $("#deleteModal").modal("hide");
     }
+    /*
+    function editarRama(index){
+        var grupo=grupos[index];
+        editIndex=index;
+        editNombre.value=grupo.nombre;
+        editCodigo.value=grupo.codigo;
+        editFecha.value=grupo.fecha_Creacion;
+        editHsInicio.value=grupo.horario_Inicio;
+        editHsFin.value=grupo.horario_fin;
+        editUbicacionGrupo.value=getDireccionString(grupo.ubicacion);
+        ubicacionGrupoActual=grupo.ubicacion;
+        if(grupo.sitio_web)
+            editWeb.value=grupo.sitio_web;
+        if(grupo.telefono)
+            editTelefono.value=grupo.telefono;
+        if(grupo.email)
+            editEmail.value=grupo.email;
+        
+         $('#editRamasHref').attr('href','/ramas/'+grupo._id);
+    }*/

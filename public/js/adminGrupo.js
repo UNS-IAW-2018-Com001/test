@@ -113,7 +113,7 @@
         if(grupo.email)
             editEmail.value=grupo.email;
         
-         $('#editRamasHref').attr('href','/ramas'+grupo._id);
+         $('#editRamasHref').attr('href','/ramas/'+grupo._id);
     }
 
     function getDireccion(){
