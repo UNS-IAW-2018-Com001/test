@@ -15,7 +15,7 @@
 						<div class="form-group">
 							<label>Edad Minima <label class="obligatorio">(*)</label></label>
 							<!input type="text" class="form-control" required id="editEdadMinima">
-							<select class="selectpicker form-control col-md-10" id="editEdadMinima">
+							<select class="selectpicker form-control col-md-10" id="editEdadMinima" data-size="5">
 							{% for i in 4..21 %}
 								<option>{{i}}</option>
 							{% endfor %}
@@ -24,7 +24,7 @@
 						<div class="form-group">
 							<label>Edad Maxima <label class="obligatorio">(*)</label></label>
 							<!input type="text" class="form-control" required id="editEdadMaxima">
-							<select class="selectpicker form-control col-md-10" id="editEdadMaxima">
+							<select class="selectpicker form-control col-md-10" id="editEdadMaxima" data-size="5">
 							{% for i in 4..21 %}
 								<option>{{i}}</option>
 							{% endfor %}

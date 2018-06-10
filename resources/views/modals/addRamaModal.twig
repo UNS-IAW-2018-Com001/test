@@ -14,11 +14,21 @@
 						</div>
 						<div class="form-group">
 							<label>Edad Minima <label class="obligatorio">(*)</label></label>
-							<input type="text" class="form-control" required id='addEdadMinima'>
+							<!input type="text" class="form-control" required id='addEdadMinima'>
+							<select class="selectpicker form-control col-md-10" id="addEdadMinima" data-size="5">
+							{% for i in 4..21 %}
+								<option>{{i}}</option>
+							{% endfor %}
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Edad Maxima <label class="obligatorio">(*)</label></label>
-							<input type="text" class="form-control" required id='addEdadMaxima'>
+							<!input type="text" class="form-control" required id='addEdadMaxima'>
+							<select class="selectpicker form-control col-md-10" id="addEdadMaxima" data-size="5">
+							{% for i in 4..21 %}
+								<option>{{i}}</option>
+							{% endfor %}
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Fecha de Inicio de Inscripcion <label class="obligatorio">(*)</label></label>
