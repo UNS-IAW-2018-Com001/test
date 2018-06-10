@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return View::make('index');
+    return View::make('grupos');
 });
 Route::get('/grupos', 'gruposController@index');
 Route::get('/ramas/{grupo}', 'ramasController@index');
