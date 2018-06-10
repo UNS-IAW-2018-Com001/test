@@ -1,8 +1,6 @@
    var grupos;
    var ubicacionGrupoActual;
     $(document).ready(function(){
-    	
-        
         $("#editGrupoSubmit").click(function(e) {
             e.preventDefault();
             var grupo=grupos[editIndex];
@@ -62,7 +60,6 @@
             getDireccion();
             $("#ubicacionModal").modal("hide");
         });
-
 
     update();
     });

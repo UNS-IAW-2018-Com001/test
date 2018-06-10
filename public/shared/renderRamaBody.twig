@@ -1,0 +1,21 @@
+    {% for rama in ramas %}
+		<tr>
+            <td>{{rama.nombre}}</td>
+            <td>{{rama.edad_minima}}</td>
+            <td>{{rama.edad_maxima}}</td>
+            <td>{{rama.fechaInscripcion_inicio}}</td>
+            <td>{{rama.fechaIscripcion_fin}}</td>
+            <td>{{rama.tipo}}</td>
+            <td><a><span>Ver Fotos</span></a></td>
+             <td>
+                <a href="#editGrupoModal" class="edit" data-toggle="modal" onclick=editarGrupo({{loop.index0}})>
+                    <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;
+                    </i>
+                </a>
+                <a href="#deleteModal" class="delete" data-toggle="modal"  onclick=setIndexRemove({{loop.index0}})>
+                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
+                    </i>
+                </a>
+            </td>
+        </tr>
+	{% endfor %}

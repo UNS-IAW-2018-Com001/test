@@ -1,6 +1,7 @@
 <?php
 
 use App\Grupo;
+use App\Rama;
 use Illuminate\Http\Request;
 
 /*
@@ -18,9 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/grupos', function () {
-    return Grupo::all();
-});
+Route::get('/grupos', 'gruposController@consultar');
 Route::post('/grupo/crear','gruposController@crear');
 Route::delete('/grupos/{grupo}', 'gruposController@eliminar');
 Route::put('/grupos/{grupo}', 'gruposController@actualizar');
+
+Route::get('/ramas/{grupo}', 'ramasController@consultar');

@@ -10,7 +10,7 @@ class ramasController extends Controller
 {
     const columnas = array(
     		0 => array(
-    			'size'=>"col-md-2",
+    			'size'=>"col-md-4",
     			'name'=>"Nombre",
     			'id'=>0
     		),
@@ -25,12 +25,12 @@ class ramasController extends Controller
     			'id'=>2
     		),
     		3 =>array(
-    			'size'=>"col-md-2",
+    			'size'=>"col-md-1",
     			'name'=>"Fecha de Inicio de Inscripcion",
     			'id'=>3
     		),
     		4 =>array(
-    			'size'=>"col-md-2",
+    			'size'=>"col-md-1",
     			'name'=>"Fecha de Fin de Inscripcion",
     			'id'=>4
     		),
@@ -53,13 +53,17 @@ class ramasController extends Controller
     const fotos="<a><span>Ver Fotos</span></a>";
 	const edit='<a href="#editRamaModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a><a href="#deleteRamaModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>';
 
-	public function index($idgrupo){
+	public function index(Grupo $grupo){
     	return view('ramas', [
-    		'title' => "Administrar Ramas del Grupo ".$idgrupo,
-    		'titleTable'=> 'Ramas del Grupo '.$idgrupo,
+    		'title' => "Administrar Ramas del Grupo ".$grupo->nombre,
+    		'titleTable'=> 'Ramas del Grupo '.$grupo->nombre,
     		'addLabel'=>'Rama',
     		'modalDeleteTitle'=>" Eliminar Rama",
     		'columnas'=>self::columnas,
+            'idGrupo'=>$grupo->_id,
 		]);
+    }
+    public function consultar(Grupo $grupo){
+        return Rama::all()->where('GrupoPerteneciente', $grupo->_id);
     }
 }

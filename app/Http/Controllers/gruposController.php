@@ -16,24 +16,21 @@ class gruposController extends Controller
     		'columnas'=>self::columnas,
 		]);
     }
+	public function consultar() {
+    	return Grupo::all();
+	}
     public function crear(Request $request){
     	$data = json_decode($request->getContent(), true);
     	Grupo::create($data);
-    	//$data= array($data);
-    	//dd($data["nombre"]);
     	return response()->json(($data), 200);
     }
     public function eliminar(Grupo $grupo){
     	$grupo->delete();
-
     	return response()->json(($grupo), 200);
     }
-    
-
     public function actualizar(Grupo $grupo,Request $request){
     	$data = json_decode($request->getContent(), true);
     	$grupo->update($data);
-
     	return response()->json(($data), 200);
     }
 	const columnas = array(
