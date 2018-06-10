@@ -1,5 +1,10 @@
 {% extends 'table.twig' %}
 
+
+{% block scriptAdmin %}
+    <script type="text/javascript" src="/js/adminRama.js"></script>
+{% endblock %}
+
 {% block modals %}
        {% include "modals/addRamaModal.twig" %}
        {% include "modals/editRamaModal.twig" %}	

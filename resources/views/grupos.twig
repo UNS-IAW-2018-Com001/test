@@ -1,5 +1,9 @@
 {% extends 'table.twig' %}
 
+{% block scriptAdmin %}
+    <script type="text/javascript" src="/js/adminGrupo.js"></script>
+{% endblock %}
+
 {% block modals %}
        {% include "modals/addGrupoModal.twig" %}
        {% include "modals/editGrupoModal.twig" %}	

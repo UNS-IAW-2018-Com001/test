@@ -14,7 +14,6 @@ class gruposController extends Controller
     		'addLabel'=>'Grupo',
     		'modalDeleteTitle'=>" Eliminar Grupo",
     		'columnas'=>self::columnas,
-    		'elementos'=>[],
 		]);
     }
     public function crear(Request $request){
