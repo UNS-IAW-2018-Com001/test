@@ -54,7 +54,7 @@
             'horario_Inicio':addInicioGrupo.value,
             'horario_fin':addFinGrupo.value,
             'religion':addReligionGrupo.value,
-            'ubicacion':JSON.stringify(ubicacionGrupoActual)
+            'ubicacion':ubicacionGrupoActual
         };
         if(addWebGrupo.value!="")
             mensaje['sitio_web']=addWebGrupo.value;
