@@ -76,9 +76,9 @@ class ramasController extends Controller
         $rama->delete();
         return response()->json(($rama), 200);
     }
-    public function actualizar(Grupo $grupo,Request $request){
+    public function actualizar(Rama $rama,Request $request){
         $data = json_decode($request->getContent(), true);
-        $grupo->update($data);
+        $rama->update($data);
         return response()->json(($data), 200);
     }
 }
