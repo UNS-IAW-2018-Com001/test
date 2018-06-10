@@ -7,7 +7,7 @@
             e.preventDefault();
             realizarAgregado();
         });
-        $("#editGrupoSubmit").click(function(e) {
+        $("#editRamaSubmit").click(function(e) {
             e.preventDefault();
             realizarEdicion();
         });
