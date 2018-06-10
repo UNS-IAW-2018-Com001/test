@@ -66,4 +66,19 @@ class ramasController extends Controller
     public function consultar(Grupo $grupo){
         return Rama::all()->where('GrupoPerteneciente', $grupo->_id);
     }
+
+    public function crear(Request $request){
+        $data = json_decode($request->getContent(), true);
+        Rama::create($data);
+        return response()->json(($data), 200);
+    }
+    public function eliminar(Rama $rama){
+        $rama->delete();
+        return response()->json(($rama), 200);
+    }
+    public function actualizar(Grupo $grupo,Request $request){
+        $data = json_decode($request->getContent(), true);
+        $grupo->update($data);
+        return response()->json(($data), 200);
+    }
 }

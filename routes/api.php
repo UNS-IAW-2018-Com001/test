@@ -20,8 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/grupos', 'gruposController@consultar');
-Route::post('/grupo/crear','gruposController@crear');
+Route::post('/grupos/crear','gruposController@crear');
 Route::delete('/grupos/{grupo}', 'gruposController@eliminar');
 Route::put('/grupos/{grupo}', 'gruposController@actualizar');
 
 Route::get('/ramas/{grupo}', 'ramasController@consultar');
+Route::post('/ramas/crear','ramasController@crear');
+Route::delete('/ramas/{rama}', 'ramasController@eliminar');

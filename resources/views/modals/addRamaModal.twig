@@ -10,27 +10,27 @@
 					<div class="modal-body">					
 						<div class="form-group">
 							<label>Nombre <label class="obligatorio">(*)</label></label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control" required id='addNombreRama'>
 						</div>
 						<div class="form-group">
 							<label>Edad Minima <label class="obligatorio">(*)</label></label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control" required id='addEdadMinima'>
 						</div>
 						<div class="form-group">
 							<label>Edad Maxima <label class="obligatorio">(*)</label></label>
-							<input type="text" class="form-control" required>
+							<input type="text" class="form-control" required id='addEdadMaxima'>
 						</div>
 						<div class="form-group">
 							<label>Fecha de Inicio de Inscripcion <label class="obligatorio">(*)</label></label>
-							<input type="text" class="form-control dateFormat" required>
+							<input type="text" class="form-control dateFormat" required readonly id='addFechaInicio'>
 						</div>
 						<div class="form-group">
 							<label>Fecha de Fin de Inscripcion <label class="obligatorio">(*)</label></label>
-							<input type="text" class="form-control dateFormat" required>
+							<input type="text" class="form-control dateFormat" required readonly id='addFechaFin'>
 						</div>
 						<div class="form-group">
 							<label>Tipo <label class="obligatorio">(*)</label></label>
-							<select class="selectpicker form-control col-md-10">
+							<select class="selectpicker form-control col-md-10" id='addTipo'>
   								<option>Rama Femenina</option>
   								<option>Rama Masculina</option>
   								<option>Rama Mixta</option>
@@ -47,7 +47,7 @@
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-						<input type="submit" class="btn btn-success" value="Añadir">
+						<input type="submit" class="btn btn-success" value="Añadir" id="addRamaSubmit">
 					</div>
 				</form>
 			</div>
