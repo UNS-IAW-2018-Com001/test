@@ -65,7 +65,7 @@
     function editarRama(index){
         var rama=ramas[index];
         editIndex=index;
-        editNombre.value=rama.edad_minima;
+        editNombre.value=rama.nombre;
         editEdadMinima.value=rama.edad_maxima;
         editEdadMaxima.value=rama.edad_maxima;
         editFechaInicio.value=rama.fechaInscripcion_inicio;
