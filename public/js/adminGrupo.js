@@ -115,6 +115,10 @@
         
          $('#editRamasHref').attr('href','/ramas/'+grupo._id);
     }
+    function viewUbicacion(index){
+        var grupo=grupos[index];
+        UbicacionView.value="Direccion:"+getDireccionString(grupo.ubicacion);
+    }
 
     function getDireccion(){
         var key='AIzaSyD6w7d-gbnFx2SZPOW_zTiUByMekCvTPuE';
