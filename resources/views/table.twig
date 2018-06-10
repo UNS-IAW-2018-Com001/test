@@ -3,6 +3,7 @@
 {% block body %}
        {% include "components/navegationBar.twig" %}
        <div class="panel panel-info" id="panelTOTAL">
+          {%block backGrupos %}{% endblock %}
          	<div class="table-wrapper">
          		 {% include "components/titleTable.twig" %}
          		 <table class="table table-hover" id="tabla">

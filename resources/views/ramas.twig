@@ -1,6 +1,14 @@
 {% extends 'table.twig' %}
 
 
+{%block backGrupos %}
+	<button type="button" class="btn btn-default" aria-label="Left Align" href="/grupos">
+  		<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>Volver a Grupos
+	</button>
+	<button type="button" class="btn btn-default" aria-label="Left Align" href="/grupos">
+		<i class="material-icons">reply</i>Volver a Grupos
+	</button>
+{% endblock %}
 {% block scriptAdmin %}
     <script type="text/javascript" src="/js/adminRama.js"></script>
 {% endblock %}
