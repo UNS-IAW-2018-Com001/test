@@ -7,6 +7,10 @@
             e.preventDefault();
             realizarAgregado();
         });
+        $("#editGrupoSubmit").click(function(e) {
+            e.preventDefault();
+            realizarEdicion();
+        });
         $("#eliminarSubmit").click(function(e) {
             e.preventDefault();
             realizarEliminado();
@@ -26,8 +30,8 @@
         var mensaje={
             'nombre':addNombreRama.value,
             'GrupoPerteneciente':idGrupo,
-            'edad_minima':addEdadMinima.value,
-            'edad_maxima':addEdadMaxima.value,
+            'edad_minima':parseInt(addEdadMinima.value),
+            'edad_maxima':parseInt(addEdadMaxima.value),
             'fechaInscripcion_inicio':addFechaInicio.value,
             'fechaIscripcion_fin':addFechaFin.value,
             'tipo': addTipo.value
@@ -37,29 +41,34 @@
         addTipo.value="Rama Femenina";
         $("#addModal").modal("hide");
     }
+    function realizarEdicion(){        
+        var rama=ramas[editIndex];
+        rama.nombre=editNombre.value;
+        rama.edad_minima=parseInt(addEdadMinima.value);
+        rama.edad_maxima=parseInt(addEdadMaxima.value);
+        rama.fechaInscripcion_inicio=addFechaInicio.value;
+        rama.fechaIscripcion_fin=addFechaFin.value;
+        rama.tipo=addTipo.value;
+
+        var id= grupo._id;
+        ruta='/api/ramas/'+id;
+        putTest(ruta,JSON.stringify(rama));
+        $("#editGrupoModal").modal("hide"); 
+    }
     function realizarEliminado(){
         var id= ramas[elimIndex]._id;
         ruta='/api/ramas/'+id;
         removeTest(ruta);
         $("#deleteModal").modal("hide");
     }
-    /*
+    
     function editarRama(index){
         var grupo=grupos[index];
         editIndex=index;
-        editNombre.value=grupo.nombre;
-        editCodigo.value=grupo.codigo;
-        editFecha.value=grupo.fecha_Creacion;
-        editHsInicio.value=grupo.horario_Inicio;
-        editHsFin.value=grupo.horario_fin;
-        editUbicacionGrupo.value=getDireccionString(grupo.ubicacion);
-        ubicacionGrupoActual=grupo.ubicacion;
-        if(grupo.sitio_web)
-            editWeb.value=grupo.sitio_web;
-        if(grupo.telefono)
-            editTelefono.value=grupo.telefono;
-        if(grupo.email)
-            editEmail.value=grupo.email;
-        
-         $('#editRamasHref').attr('href','/ramas/'+grupo._id);
-    }*/
+        editNombre.value=grupo.edad_minima;
+        editEdadMinima.value=grupo.edad_maxima;
+        editEdadMaxima.value=grupo.edad_maxima;
+        editFechaInicio.value=grupo.fechaInscripcion_inicio;
+        editFechaFin.value=grupo.fechaIscripcion_fin;
+        editTipo.value=grupo.tipo;
+    }
