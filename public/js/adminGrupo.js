@@ -112,6 +112,8 @@
             editTelefono.value=grupo.telefono;
         if(grupo.email)
             editEmail.value=grupo.email;
+        
+         $('#editRamasHref').attr('href','/ramas'+grupo._id);
     }
 
     function getDireccion(){
