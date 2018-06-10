@@ -49,7 +49,7 @@
     function realizarAgregado(){
         var mensaje={
             'nombre':addNombreGrupo.value,
-            'codigo':addCodigoGrupo.value,
+            'codigo':parseInt(addCodigoGrupo.value),
             'fecha_Creacion':addFechaGrupo.value,
             'horario_Inicio':addInicioGrupo.value,
             'horario_fin':addFinGrupo.value,
@@ -73,7 +73,7 @@
     function realizarEdicion(){        
         var grupo=grupos[editIndex];
         grupo.nombre=editNombre.value;
-        grupo.codigo=editCodigo.value;
+        grupo.codigo=parseInt(editCodigo.value);
         grupo.fecha_Creacion=editFecha.value;
         grupo.horario_Inicio=editHsInicio.value;
         grupo.horario_fin=editHsFin.value;

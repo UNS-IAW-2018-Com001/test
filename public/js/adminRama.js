@@ -63,12 +63,12 @@
     }
     
     function editarRama(index){
-        var grupo=grupos[index];
+        var rama=ramas[index];
         editIndex=index;
-        editNombre.value=grupo.edad_minima;
-        editEdadMinima.value=grupo.edad_maxima;
-        editEdadMaxima.value=grupo.edad_maxima;
-        editFechaInicio.value=grupo.fechaInscripcion_inicio;
-        editFechaFin.value=grupo.fechaIscripcion_fin;
-        editTipo.value=grupo.tipo;
+        editNombre.value=rama.edad_minima;
+        editEdadMinima.value=rama.edad_maxima;
+        editEdadMaxima.value=rama.edad_maxima;
+        editFechaInicio.value=rama.fechaInscripcion_inicio;
+        editFechaFin.value=rama.fechaIscripcion_fin;
+        editTipo.value=rama.tipo;
     }
