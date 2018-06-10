@@ -18,6 +18,9 @@
             getDireccion();
             $("#ubicacionModal").modal("hide");
         });
+        $("#ubicacionAcept").click(function() {
+            $("#ubicacionViewModal").modal("hide");
+        });
 
     update();
     });
