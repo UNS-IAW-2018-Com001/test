@@ -7,7 +7,7 @@
             e.preventDefault();
             realizarAgregado();
         });
-        $("#editRamaSubmit").click(function(e) {
+        $("#editRamaSubmit  ").click(function(e) {
             e.preventDefault();
             realizarEdicion();
         });
@@ -44,11 +44,11 @@
     function realizarEdicion(){        
         var rama=ramas[editIndex];
         rama.nombre=editNombre.value;
-        rama.edad_minima=parseInt(addEdadMinima.value);
-        rama.edad_maxima=parseInt(addEdadMaxima.value);
-        rama.fechaInscripcion_inicio=addFechaInicio.value;
-        rama.fechaIscripcion_fin=addFechaFin.value;
-        rama.tipo=addTipo.value;
+        rama.edad_minima=parseInt(editEdadMinima.value);
+        rama.edad_maxima=parseInt(editEdadMaxima.value);
+        rama.fechaInscripcion_inicio=editFechaInicio.value;
+        rama.fechaIscripcion_fin=editFechaFin.value;
+        rama.tipo=editTipo.value;
 
         var id= rama._id;
         ruta='/api/ramas/'+id;
