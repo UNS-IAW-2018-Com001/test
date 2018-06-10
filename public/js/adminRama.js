@@ -7,7 +7,7 @@
             e.preventDefault();
             realizarAgregado();
         });
-        $("#editRamaSubmit").click(function(e) {
+        $("#    ").click(function(e) {
             e.preventDefault();
             realizarEdicion();
         });
@@ -50,10 +50,10 @@
         rama.fechaIscripcion_fin=addFechaFin.value;
         rama.tipo=addTipo.value;
 
-        var id= grupo._id;
+        var id= rama._id;
         ruta='/api/ramas/'+id;
         putTest(ruta,JSON.stringify(rama));
-        $("#editGrupoModal").modal("hide"); 
+        $("#editRamaModal").modal("hide"); 
     }
     function realizarEliminado(){
         var id= ramas[elimIndex]._id;
